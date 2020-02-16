@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./task1.js">  </script>
+<script src="./task2.js">  </script>
+<script src="./task3.js">  </script>
+<script src="./task4.js">  </script>
+<script src="./task5.js">  </script>
+</head>
+
+<body>
+
+     <!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+
+    // Task 1
+    ////////////////////////////////////////////////////////////
+
+    describe("sumOrMulti1",function() {
+        it("Task 1: Pass a = '9', b = '5'",function() {
+            assert.equal(sumOrMulti(9,5), 14);
+
+        });
+    });
+
+    describe("sumOrMulti2",function() {
+        it("Task 1: Pass a = '10', b = '5'",function() {
+            assert.equal(sumOrMulti(10,5), 50);
+
+        });
+    });
+
+    describe("sumOrMulti4",function() {
+        it("Task 1: Pass a = 'text', b = '5'",function() {
+            assert.equal(sumOrMulti('text',5), 'Error!');
+
+        });
+    });
+
+    // Task 2
+    ////////////////////////////////////////////////////////////
+
+    describe("getQuarter1",function() {
+        it("Task 2: Pass x = '-10', y = '10'",function() {
+            assert.equal(getQuarter(-10, 10), "II quarter");
+
+        });
+    });
+
+    describe("getQuarter2",function() {
+        it("Task 2: Pass x = 'null', y = '10'",function() {
+            assert.equal(getQuarter(null, 10), 'Error!');
+
+        });
+    });
+
+    // Task 3
+    ////////////////////////////////////////////////////////////
+
+    describe("sumPositive1",function() {
+        it("Task 3: Pass x = '15', y = '-10', c = '-5'",function() {
+            assert.equal(sumPositive(15, -10, 5), 20);
+
+        });
+    });
+
+    describe("sumPositive2",function() {
+        it("Task 3: Pass x = 'true', y = '10', 5",function() {
+            assert.equal(sumPositive(true, 10, 5), 'Error!');
+
+        });
+    });
+
+    // Task 4
+    ////////////////////////////////////////////////////////////
+
+    describe("calcMaxOf1",function() {
+        it("Task 1: Pass a = '2', b = '2', c = '2'",function() {
+            assert.equal(calcMaxOf(2, 2, 2), 11);
+
+        });
+    });
+            
+    describe("calcMaxOf2",function() {
+        it("Task 1: Pass a = 'text', b = '2', c = '2'",function() {
+            assert.equal(calcMaxOf('text', 2, 2), 'Error!');
+        });
+    });
+
+
+    // Task 5
+    ////////////////////////////////////////////////////////////
+
+    describe("getMark1",function() {
+        it("Task 1: Pass a = '9'",function() {
+            assert.equal(getMark(9), 'F');
+
+        });
+    });
+
+    describe("getMark2",function() {
+        it("Task 1: Pass a = '-1'",function() {
+            assert.equal(getMark(-1), 'Error!');
+
+        });
+    });
+
+</script>
+<script>
+    mocha.run();
+</script>
+
+	</body>
+</html>
