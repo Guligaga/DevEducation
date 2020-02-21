@@ -42,11 +42,26 @@ function Alist(arr) {
         arr.length = arr.length - 1; 
         return arrLast;
     }
+
+    this.delPos = function delPos(index) {
+
+        let arrSeized = arr[index]
+        
+        for (let i = index; i < (arr.length - 1); i++) {
+            
+            arr[i] = arr[i + 1]
+            
+        }
+        arr.length = arr.length - 1;
+         
+        return arrSeized;
+    }
     
     
 }
 const aList = new Alist([1, 2, 3, 4, 5])
-console.log(aList.addStart(123));
-console.log(aList.addEnd(123));
-console.log(aList.delStart());
-console.log(aList.delEnd());
+console.log('.addStart impact:', aList.addStart(123));
+console.log('.addEnd impact:', aList.addEnd(123));
+console.log('.delStart impact:', aList.delStart());
+console.log('.delEnd impact:', aList.delEnd());
+console.log('.delPos impact:', aList.delPos(0));
