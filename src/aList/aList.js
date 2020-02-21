@@ -45,23 +45,41 @@ function Alist(arr) {
 
     this.delPos = function delPos(index) {
 
-        let arrSeized = arr[index]
         
-        for (let i = index; i < (arr.length - 1); i++) {
-            
-            arr[i] = arr[i + 1]
-            
+        if (arr[index] == undefined) {
+            console.log(`Error! Index ${index} is not defined.`);
         }
-        arr.length = arr.length - 1;
-         
-        return arrSeized;
+        else {
+            let arrSeized = arr[index];
+            for (let i = index; i < (arr.length - 1); i++) {
+            
+                arr[i] = arr[i + 1]
+                
+            }
+            arr.length = arr.length - 1;
+             
+            return arrSeized;
+        }
+        
+    }
+
+    this.get = function get(index) {
+        return arr[index]
+    }
+
+    this.set = function set (index, value) {
+        arr[index] = value;
+        return arr;
     }
     
     
 }
-const aList = new Alist([1, 2, 3, 4, 5])
+const aList = new Alist([11, 22, 33, 44, 55])
+
 console.log('.addStart impact:', aList.addStart(123));
 console.log('.addEnd impact:', aList.addEnd(123));
 console.log('.delStart impact:', aList.delStart());
 console.log('.delEnd impact:', aList.delEnd());
-console.log('.delPos impact:', aList.delPos(0));
+console.log('.delPos impact:', aList.delPos(4));
+console.log('.get impact:', aList.get(1));
+console.log('.set impact:', aList.set(1, 88));
