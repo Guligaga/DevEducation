@@ -117,7 +117,46 @@
         });
     });
 
+    describe(".sort",function() {
+        it("Method have to sort values ascending",function() {
+            assert.deepEqual(aList1.sort(), [2, 4, 11, 15, 33]);
+
+        });
+    });
     
+    describe(".minIndex",function() {
+        it("Method have to return minimal value's index",function() {
+            assert.deepEqual(aList.minIndex(), 0);
+
+        });
+    });
+    
+    describe(".maxIndex",function() {
+        it("Method have to return maximal value's index",function() {
+            assert.deepEqual(aList.maxIndex(), 4);
+
+        });
+    });
+
+    describe(".reverse",function() {
+        it("Method have to reverse array",function() {
+            assert.deepEqual(aList.reverse(), [55, 44, 33, 22, 11]);
+
+        });
+    });
+
+    describe(".halfReverse",function() {
+        it("Method have to reverse values in halfs of array with odd size",function() {
+            assert.deepEqual(aList2.halfReverse(), [22, 11, 33, 55, 44]);
+
+        });
+        it("Method have to reverse values in halfs of array with even size",function() {
+            assert.deepEqual(aList3.halfReverse(), [33, 22, 11, 66, 55, 44]);
+
+        });
+    });
+
+
 
 
 

@@ -151,5 +151,119 @@ Alist.prototype.max = function() {
     }
     return arrMax;
 }
-const aList = new Alist([11, 22, 33, 44, 55]);
 
+Alist.prototype.sort = function() {
+
+    let valueToSort;
+    let j;
+
+    for (let i = 1; i < this.size(); i++) {
+        
+        valueToSort = this.arr[i]
+        j = i;
+
+        while (valueToSort < this.arr[j - 1] && j > 0) {
+
+            this.arr[j] = this.arr[j - 1]
+            j--;
+        }
+
+        this.arr[j] = valueToSort;
+    }
+    return this.arr;
+}
+
+
+Alist.prototype.minIndex = function() {
+
+    let index;
+    
+    let arrMin = this.arr[0]
+    for (let i = 0; i < this.size(); i++) {
+
+        if(arrMin >= this.arr[i]) {
+
+            arrMin = this.arr[i];
+            index = i;
+        }
+    }
+    return index;
+}
+
+Alist.prototype.maxIndex = function() {
+    
+    let index;
+    let arrMax = this.arr[0];
+    
+    for (let i = 0; i < this.size(); i++) {
+
+        if (arrMax <= this.arr[i]) {
+            arrMax = this.arr[i]
+            index = i;
+        }
+    }
+    return index;
+}
+
+Alist.prototype.reverse = function() {
+
+    let arrTemp = [];
+    for (let i = 0; i < this.size(); i++) {
+        arrTemp[i] = this.arr[this.size() - 1 - i]
+    }
+    this.arr = arrTemp;
+    return this.arr;
+}
+
+Alist.prototype.halfReverse = function() {
+    
+    let arrTemp = [];
+    let len = this.size();
+    let i = 0;
+    
+    if (len % 2 == 0) {
+
+        while (i < len/2) {
+           
+            arrTemp[i] = this.arr[len/2 - 1 - i];
+            i++;
+        }    
+        while (i < len){
+                
+            arrTemp[i] = this.arr[len + len/2 - 1 - i];
+            i++;
+        }
+        
+    }
+    else {
+
+        while (i < len/2 - 0.5) {
+           
+            arrTemp[i] = this.arr[len/2 - 1.5 - i];
+            console.log('i', i)
+            i++;
+            
+        }
+        while (i == len/2 - 0.5) {
+
+            arrTemp[i] = this.arr[i];
+            console.log('i', i)
+            i++;
+        }
+        while (i < len){
+            
+            arrTemp[i] = this.arr[len + len/2 - 0.5 - i];
+            console.log('i', i)
+            i++;
+        }
+        
+    }
+    this.arr = arrTemp;
+    return this.arr;
+}
+
+
+const aList = new Alist([11, 22, 33, 44, 55]);
+const aList1 = new Alist([11, 2, 33, 4, 15]);
+const aList2 = new Alist([11, 22, 33, 44, 55]);
+const aList3 = new Alist([11, 22, 33, 44, 55, 66]);
