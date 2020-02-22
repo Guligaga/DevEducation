@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aList Test</title>
+
+
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./aList.js">  </script>
+
+
+</head>
+
+<body>
+
+     <!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+
+    describe(".size",function() {
+        it("Method have to define size of array",function() {
+            assert.deepEqual(aList.size(), 5);
+
+        });
+    });
+
+    describe(".addStart",function() {
+        it("Needed value have to be added in the beginning",function() {
+            assert.deepEqual(aList.addStart(0), [0, 11, 22, 33, 44, 55]);
+
+        });
+    });
+
+    describe(".addEnd",function() {
+        it("Needed value have to be added in the end",function() {
+            assert.deepEqual(aList.addEnd(66), [0, 11, 22, 33, 44, 55, 66]);
+
+        });
+    });
+
+    describe(".delStart",function() {
+        it("Method have to seize first value and return it",function() {
+            assert.deepEqual(aList.delStart(), 0);
+
+        });
+    });
+
+    describe(".delEnd",function() {
+        it("Method have to seize last value and return it",function() {
+            assert.deepEqual(aList.delEnd(), 66);
+
+        });
+    });
+
+    describe(".delPos",function() {
+        it("Method have to seize value by needed index and return it",function() {
+            assert.deepEqual(aList.delPos(2), 33);
+
+        });
+    });
+
+    describe(".get",function() {
+        it("Method have to return value by needed index",function() {
+            assert.deepEqual(aList.get(2), 44);
+
+        });
+    });
+
+    describe(".set",function() {
+        it("Method have to replace value by needed index to needed value",function() {
+            assert.deepEqual(aList.set(1, 88), [11, 88, 44, 55]);
+
+        });
+    });
+
+    describe(".toString",function() {
+        it("Method have to convert whole array to string",function() {
+            assert.deepEqual(aList.toString(), '11884455');
+
+        });
+    });
+
+    describe(".clear",function() {
+        it("Method have to undo all changes and return array to original form",function() {
+            assert.deepEqual(aList.clear(), [11, 22, 33, 44, 55]);
+
+        });
+    });
+
+    describe(".min",function() {
+        it("Method have to return minimal value",function() {
+            assert.deepEqual(aList.min(), 11);
+
+        });
+    });
+    
+    describe(".max",function() {
+        it("Method have to return maximal value",function() {
+            assert.deepEqual(aList.max(), 55);
+
+        });
+    });
+
+    
+
+
+
+</script>
+<script>
+    mocha.run();
+</script>
+
+	</body>
+</html>
