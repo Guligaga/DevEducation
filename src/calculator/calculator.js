@@ -21,7 +21,6 @@ function showOnDisp(event) {
             
             operand1 += event.target.value;
             displayVar.value = operand1;
-            // return operand1;
         }
     }
     else if (isOperClicked == true) {
@@ -30,7 +29,6 @@ function showOnDisp(event) {
             
             operand2 += event.target.value;
             displayVar.value = operand2;
-            // return operand2;
         }
     }
 }
@@ -51,11 +49,54 @@ equalityVar.addEventListener("click", equalityAction);
 
 function equalityAction() {
 
-    operand1 = +operand1;
-    operand2 = +operand2;
-    displayVar.value = getAnswer(operator);
-}
+    
+    // isOperClicked = false;
 
+    if (operand1 !== '' && operand2 !== '') {
+        
+        operand1 = +operand1;
+        operand2 = +operand2;
+        displayVar.value = getAnswer(operator);
+        
+        isOperClicked = false;
+        operand1 = '';
+        operand2 = '';
+        
+    }
+    else if (operand1 !== '' && operand2 == ''){
+
+        if (isOperClicked == true) {
+            
+            operand1 = +operand1;
+            operand2 = operand1;
+            displayVar.value = getAnswer(operator);
+        
+            isOperClicked = false;
+            operand1 = '';
+            operand2 = '';
+        }
+        else {
+            displayVar.value = operand1;
+        }
+        
+    }
+    else {
+        if (isOperClicked == true) {
+            operand1 = 0;
+            operand2 = + operand2;
+            displayVar.value = getAnswer(operator);
+        
+            isOperClicked = false;
+            operand1 = '';
+            operand2 = '';
+        }
+        else {
+            displayVar.value = 0;
+        }
+        
+    }
+
+}
 
 
 function getAnswer (operation) {
@@ -73,7 +114,33 @@ function getAnswer (operation) {
         case '/':
             answer = calcDiv(operand1, operand2);
             break;
+        
     }
     return answer;
+}
+
+function calcSum(a, b) {
+    return a + b;
+}
+function calcSub(a, b) {
+    return a - b;
+}
+function calcMulti(a, b) {
+    return a * b;
+}
+function calcDiv(a, b) {
+    return a / b;
+}
+
+clearVar.addEventListener("click", clearAll);
+
+function clearAll() {
+    
+    operand1 = '';
+    operand2 = '';
+    operator = undefined;
+    isOperClicked = false;
+    displayVar.value = "0";
+
 }
 
