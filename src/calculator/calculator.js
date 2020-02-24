@@ -1,34 +1,54 @@
-
+let dispLen = 9;
 let operand1 = '';
 let operand2 = '';
 let operator;
+let answer = 0;
 let isOperClicked = false;
-let answer;
 let isNumClicked = false;
+let isPointClicked = false;
 const displayVar = document.querySelector(".display");
 const numeralVar = document.querySelectorAll('.numeral');
+const pointVar = document.querySelector(".point");
 const operatorVar = document.querySelectorAll(".operator");
 const equalityVar = document.querySelector(".equality");
 const clearVar = document.querySelector(".clear");
+
+pointVar.addEventListener("click", ifPoint);
+
+function ifPoint(event) {
+    
+    if (isPointClicked == false) {
+
+        if (isOperClicked == false) {
+            
+            operand1 += event.target.value;
+            displayVar.value = operand1;
+        }
+        else {
+            
+            operand2 += event.target.value;
+            displayVar.value = operand2;
+        }
+        isPointClicked = true;
+    }
+    dispLen++;
+}
 
 for (let i = 0; i < numeralVar.length; i++) {
 
     numeralVar[i].addEventListener("click", showOnDisp);
 }
 function showOnDisp(event) {
-    // debugger
-    if (isOperClicked == false) {
 
-        if (operand1.length < 10) {
+    if (isOperClicked == false) {
+        if (operand1.length < dispLen) {
             
             operand1 += event.target.value;
             displayVar.value = operand1;
-            
         }
     }
     else {
-        
-        if (operand2.length < 10) {
+        if (operand2.length < dispLen) {
 
             operand2 += event.target.value;
             displayVar.value = operand2;
@@ -43,7 +63,6 @@ for (let i = 0; i < operatorVar.length; i++) {
     operatorVar[i].addEventListener("click", operatorAction);    
 }
 function operatorAction(event) {
-
     if (isNumClicked == false) {
     
         operand1 = +answer;
@@ -58,6 +77,7 @@ function operatorAction(event) {
     operator = event.target.value;
     isOperClicked = !!operator;
     isNumClicked = false;
+    isPointClicked = false;
 }
 
 
@@ -73,9 +93,6 @@ function equalityAction() {
         isNumClicked = false;
         operand1 = '';
         operand2 = '';
-
-        
-        
     }
     else if (operand1 !== '' && operand2 == ''){
 
@@ -88,13 +105,10 @@ function equalityAction() {
             isNumClicked = false;
             operand1 = '';
             operand2 = '';
-
-            
         }
         else {
             displayVar.value = operand1;
         }
-        
     }
     else {
         if (isOperClicked == true) {
@@ -105,14 +119,13 @@ function equalityAction() {
             isNumClicked = false;
             operand1 = '';
             operand2 = '';
-
         }
         else {
             displayVar.value = 0;
         }
         
     }
-
+    isPointClicked = false;
 }
 
 function getAnswer (operation) {
@@ -137,7 +150,6 @@ function getAnswer (operation) {
     }
     console.log(answer);
     return answer;
-
 }
 
 function calcSum(a, b) {
@@ -161,7 +173,9 @@ function clearAll() {
     operand2 = '';
     operator = undefined;
     isOperClicked = false;
+    isPointClicked = false;
     displayVar.value = "0";
+    answer = 0;
 
 }
 

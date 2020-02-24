@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: darkslategray;
+    background-color: rgb(43, 34, 65);
 } 
 
 .calculator {
@@ -12,12 +12,12 @@ body {
     margin: 0 auto;
     border: 1px solid black;
     width: 100%;
-    max-width: 250px;
-    min-height: 350px;
+    max-width: 280px;
+    min-height: 325px;
     
 }
 
-.calc-row {
+.buttonsRow {
     display: flex;
 
 }
@@ -35,9 +35,10 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 45px;
-    color: whitesmoke;
+    color: rgb(235, 235, 235);
     background-color: #313133;
     text-align: right;
+    border: none;
     
 }
 
@@ -45,9 +46,10 @@ body {
 .equality,
 .clear,
 .numeral,
+.point,
 .zero {
     border: 1px solid rgb(43, 41, 41);
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
 }
 
@@ -56,18 +58,21 @@ body {
     width: 25%;
     height: 70px;
     background-color: #F6872C;
+    color: rgb(235, 235, 235);
 }
 
-.numeral {
-    background-color: #DCDCDC;
+.numeral,
+.point {
+    background-color: rgb(99, 99, 99);
     width: 25%;
     margin: 0;
-    
-}
+    color: rgb(235, 235, 235);
+    }
 
 .clear {
-    background-color: #DCDCDC;
+    background-color: rgb(63, 63, 63);
     width: 75%;
+    color: rgb(235, 235, 235);
 }
 
 .zero {
