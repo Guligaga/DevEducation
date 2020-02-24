@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./task1.js">  </script>
+<script src="./task2.js">  </script>
+<script src="./task3.js">  </script>
+<script src="./task4.js">  </script>
+<script src="./task5.js">  </script>
+<script src="./task6.js">  </script>
+
+</head>
+
+<body>
+
+     <!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+
+    // Task 1
+    ////////////////////////////////////////////////////////////
+
+    describe("getSumAndAmount1",function() {
+        it("Task 1: Pass a = '10'",function() {
+            assert.equal(getSumAndAmount(10), '20 and 4');
+
+        });
+    });
+
+    describe("getSumAndAmount2",function() {
+        it("Task 1: Pass a = 'ten'",function() {
+            assert.equal(getSumAndAmount('ten'), 'Error!');
+
+        });
+    });
+
+    // Task 2
+    ////////////////////////////////////////////////////////////
+
+    describe("checkIfSimple1",function() {
+        it("Task 2: Pass a = '223'",function() {
+            assert.equal(checkIfSimple(223), 'simple');
+
+        });
+    });
+
+    describe("checkIfSimple2",function() {
+        it("Task 2: Pass a = 'number'",function() {
+            assert.equal(checkIfSimple('number'), 'Error!');
+
+        });
+    });
+
+    // Task 3
+    ////////////////////////////////////////////////////////////
+
+    describe("calcSqrtSerial1",function() {
+        it("Task 3: Pass a = '121'",function() {
+            assert.equal(calcSqrtSerial(121), 11);
+
+        });
+    });
+
+    describe("calcSqrtSerial2",function() {
+        it("Task 3: Pass a = 'text",function() {
+            assert.equal(calcSqrtSerial('text'), 'Error!');
+
+        });
+    });
+
+    // Task 4
+    ////////////////////////////////////////////////////////////
+
+    describe("calcFactorial1",function() {
+        it("Task 4: Pass a = '5'",function() {
+            assert.equal(calcFactorial(5), 120);
+
+        });
+    });
+
+    describe("calcFactorial2",function() {
+        it("Task 4: Pass a = 'text",function() {
+            assert.equal(calcFactorial('text'), 'Error!');
+
+        });
+    });
+
+    // Task 5
+    ////////////////////////////////////////////////////////////
+
+    describe("numeralSum1",function() {
+        it("Task 5: Pass a = '123'",function() {
+            assert.equal(numeralSum(123), 6);
+
+        });
+    });
+
+    describe("numeralSum2",function() {
+        it("Task 5: Pass a = 'text",function() {
+            assert.equal(numeralSum('text'), 'Error!');
+
+        });
+    });
+
+    // Task 6
+    ////////////////////////////////////////////////////////////
+
+    describe("getMirror1",function() {
+        it("Task 6: Pass a = '12345'",function() {
+            assert.equal(getMirror(12345), 54321);
+
+        });
+    });
+
+    describe("getMirror2",function() {
+        it("Task 6: Pass a = 'text",function() {
+            assert.equal(getMirror('text'), 'Error!');
+
+        });
+    });
+
+
+</script>
+<script>
+    mocha.run();
+</script>
+
+	</body>
+</html>

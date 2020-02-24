@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./task1.js">  </script>
+<script src="./task2.js">  </script>
+<script src="./task3.js">  </script>
+<script src="./task4.js">  </script>
+
+</head>
+
+<body>
+
+     <!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+
+    // Task 1
+    ////////////////////////////////////////////////////////////
+
+    describe("getDayName1",function() {
+        it("Task 1: Pass a = '5'",function() {
+            assert.equal(getDayName(5), 'Friday');
+
+        });
+    });
+
+    describe("getDayName2",function() {
+        it("Task 1: Pass a = '9'",function() {
+            assert.equal(getDayName(9), 'Undefinedday');
+
+        });
+    });
+
+    // Task 2
+    ////////////////////////////////////////////////////////////
+
+    describe("getWord1",function() {
+        it("Task 2: Pass a = '223'",function() {
+            assert.equal(getWord(223), 'two hundred and twenty three');
+
+        });
+    });
+
+    describe("getWord2",function() {
+        it("Task 2: Pass a = 'number'",function() {
+            assert.equal(getWord('number'), 'Error!');
+
+        });
+    });
+
+
+    // Task 4
+    ////////////////////////////////////////////////////////////
+
+    describe("getInterval1",function() {
+        it("Task 4: Pass point1 = '[-2, 2]', point2 = '[2, -1]'",function() {
+            assert.equal(getInterval([-2, 2], [2, -1]), 5);
+
+        });
+    });
+
+    describe("getInterval2",function() {
+        it("Task 4: Pass point1 = '[-2, '2']', point2 = '[2, -1]'",function() {
+            assert.equal(getInterval([-2, '2'], [2, -1]), 'Error!');
+
+        });
+    });
+
+</script>
+<script>
+    mocha.run();
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<!-- подключаем стили Mocha, для отображения результатов -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+  <!-- подключаем библиотеку Mocha -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+
+  <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+<script>
+    mocha.setup('bdd');
+</script>
+  <!-- подключаем chai -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+  <!-- в chai есть много всего, выносим assert в глобальную область -->
+<script>
+    var assert = chai.assert;
+</script>
+<script src="./task1.js">  </script>
+<script src="./task2.js">  </script>
+<script src="./task3.js">  </script>
+<script src="./task4.js">  </script>
+<script src="./task5.js">  </script>
+<script src="./task6.js">  </script>
+<script src="./task7.js">  </script>
+<script src="./task8.js">  </script>
+
+</head>
+
+<body>
+
+     <!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+
+    // Task 1
+    ////////////////////////////////////////////////////////////
+
+    describe("getMinArr1",function() {
+        it("Task 1: Pass a = '[10, 5, 4, 8, 1, 3]'",function() {
+            assert.equal(getMinArr([10, 5, 4, 8, 1, 3]), 1);
+
+        });
+    });
+
+    describe("getMinArr2",function() {
+        it("Task 1: Pass a = '[10, 5, '4', 8, 1, 3]'",function() {
+            assert.equal(getMinArr([10, 5, '4', 8, 1, 3]), 'Error!');
+
+        });
+    });
+
+    // Task 2
+    ////////////////////////////////////////////////////////////
+
+    describe("getMaxArr1",function() {
+        it("Task 2: Pass a = '[10, 5, 4, 8, 12, 3]'",function() {
+            assert.equal(getMaxArr([10, 5, 4, 8, 12, 3]), 12);
+
+        });
+    });
+
+    describe("getMaxArr2",function() {
+        it("Task 2: Pass a = '[10, '5', 4, 8, 12, 3]'",function() {
+            assert.equal(getMaxArr([10, '5', 4, 8, 12, 3]), 'Error!');
+
+        });
+    });
+
+    // Task 3
+    ////////////////////////////////////////////////////////////
+
+    describe("getMinArrIndex1",function() {
+        it("Task 3: Pass a = '[10, 5, 4, 8, 1, 3]'",function() {
+            assert.equal(getMinArrIndex([10, 5, 4, 8, 1, 3]), 4);
+
+        });
+    });
+
+    describe("getMinArrIndex2",function() {
+        it("Task 3: Pass a = '[10, 5, '4', 8, 1, 3]'",function() {
+            assert.equal(getMinArrIndex([10, 5, '4', 8, 1, 3]), 'Error!');
+
+        });
+    });
+
+    // Task 4
+    ////////////////////////////////////////////////////////////
+
+    describe("getMaxArr1Index",function() {
+        it("Task 4: Pass a = '[10, 5, 4, 8, 12, 3]'",function() {
+            assert.equal(getMaxArrIndex([10, 5, 4, 8, 12, 3]), 4);
+
+        });
+    });
+
+    describe("getMaxArrIndex2",function() {
+        it("Task 4: Pass a = '[10, '5', 4, 8, 12, 3]'",function() {
+            assert.equal(getMaxArrIndex([10, '5', 4, 8, 12, 3]), 'Error!');
+
+        });
+    });
+
+    // Task 5
+    ////////////////////////////////////////////////////////////
+
+    describe("getSumOddInd1",function() {
+        it("Task 5: Pass a = '[5, 4, 10, 8, 1, 3]'",function() {
+            assert.equal(getSumOddInd([5, 4, 10, 8, 1, 3]), 15);
+
+        });
+    });
+
+    describe("getSumOddInd2",function() {
+        it("Task 5: Pass a = '[5, '4', 10, 8, 1, 3]",function() {
+            assert.equal(getSumOddInd([ 5, '4', 10, 8, 1, 3]), 'Error!');
+
+        });
+    });
+
+    // Task 6
+    ////////////////////////////////////////////////////////////
+
+    describe("getReverseArr1",function() {
+        it("Task 6: Pass a = '[1, 2, 3, 4, 5]'",function() {
+            assert.deepEqual(getReverseArr([1, 2, 3, 4, 5]), [ 5, 4, 3, 2, 1 ]);
+
+        });
+    });
+
+    describe("getReverseArr2",function() {
+        it("Task 6: Pass a = '[1, '2', 3, 4, 5]''",function() {
+            assert.equal(getReverseArr([1, '2', 3, 4, 5]), 'Error!');
+
+        });
+    });
+
+    // Task 7
+    ////////////////////////////////////////////////////////////
+
+    describe("getSumOdd1",function() {
+        it("Task 7: Pass a = '[5, 4, 10, 8, 1, 3]'",function() {
+            assert.equal(getSumOddValues([5, 4, 10, 8, 1, 3]), 9);
+
+        });
+    });
+
+    describe("getSumOdd2",function() {
+        it("Task 7: Pass a = '[5, '4', 10, 8, 1, 3]",function() {
+            assert.equal(getSumOddValues([ 5, '4', 10, 8, 1, 3]), 'Error!');
+
+        });
+    });
+
+    // Task 8
+    ////////////////////////////////////////////////////////////
+
+    describe("getHalfChange1",function() {
+        it("Task 8: Pass a = '[1, 2, 3, 4, 5]'",function() {
+            assert.deepEqual(getHalfChange([1, 2, 3, 4, 5]), [4, 5, 3, 1, 2]);
+
+        });
+    });
+
+    describe("getHalfChange2",function() {
+        it("Task 8: Pass a = '[1, 2, 3, 4, 5, 6]'",function() {
+            assert.deepEqual(getHalfChange([1, 2, 3, 4, 5, 6]), [4, 5, 6, 1, 2, 3]);
+
+        });
+    });
+
+    describe("getHalfChange3",function() {
+        it("Task 8: Pass a = '[1, '2', 3, 4, 5]",function() {
+            assert.equal(getHalfChange([1, '2', 3, 4, 5]), 'Error!');
+
+        });
+    });
+
+
+
+</script>
+<script>
+    mocha.run();
+</script>
+
+	</body>
+</html>
