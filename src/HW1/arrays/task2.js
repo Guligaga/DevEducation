@@ -2,7 +2,7 @@ let a2 = [10, 5, 4, 8, 12, 3];
 
 function getMaxArr(arr) {
     let max = arr[0];
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (typeof arr[i] !== 'number') {
             return 'Error!';
         }

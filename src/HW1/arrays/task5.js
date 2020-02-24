@@ -2,7 +2,7 @@ let a5 = [ 5, 4, 10, 8, 1, 3];
 
 function getSumOddInd(arr) {
     let sum = 0;
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (typeof arr[i] !== 'number') {
             return 'Error!';
         }
