@@ -17,20 +17,33 @@ pointVar.addEventListener("click", ifPoint);
 
 function ifPoint(event) {
     
+
     if (isPointClicked == false) {
 
         if (isOperClicked == false) {
-            
-            operand1 += event.target.value;
-            displayVar.value = operand1;
+            if (displayVar.value.length == 1 && displayVar.value == '0') {
+                operand1 += "0" + event.target.value;
+                displayVar.value = operand1;
+            }
+            else {
+                operand1 += event.target.value;
+                displayVar.value = operand1;
+            }
         }
         else {
-            
-            operand2 += event.target.value;
-            displayVar.value = operand2;
+            // if (displayVar.value.length == 1 && displayVar.value == '0') {
+            //     operand2 += "0" + event.target.value;
+            //     displayVar.value = operand2;
+            // }
+            // else {
+                operand2 += event.target.value;
+                displayVar.value = operand2;
+            // }
         }
         isPointClicked = true;
     }
+    
+
     dispLen++;
 }
 
@@ -40,18 +53,31 @@ for (let i = 0; i < numeralVar.length; i++) {
 }
 function showOnDisp(event) {
 
+    if (displayVar.value.length == 1 && displayVar.value == '0' && event.target.value == "0") {return;}
+
     if (isOperClicked == false) {
         if (operand1.length < dispLen) {
+            // if (displayVar.value.length == 1 && operand1 == 0) {}
+                
+                operand1 += event.target.value;
+                displayVar.value = operand1;    
             
-            operand1 += event.target.value;
-            displayVar.value = operand1;
+            // operand1 += event.target.value;
+            // operand1 = +operand1;
+            // displayVar.value = operand1;
         }
     }
     else {
         if (operand2.length < dispLen) {
+                
+                operand2 += event.target.value;
+                displayVar.value = operand2;    
+            
 
-            operand2 += event.target.value;
-            displayVar.value = operand2;
+            // operand2 += event.target.value;
+            // operand2 = +operand2;
+            // displayVar.value = operand2;
+            
         }
     }
     isNumClicked = true;
@@ -121,7 +147,8 @@ function equalityAction() {
             operand2 = '';
         }
         else {
-            displayVar.value = 0;
+            operand1 = answer;
+            displayVar.value = getAnswer(operator);
         }
         
     }
@@ -140,7 +167,7 @@ function getAnswer (operation) {
         case '-':
             answer = calcSub(operand1, operand2);
             break;
-        case '*':
+        case 'x':
             answer = calcMulti(operand1, operand2);
             break;
         case '/':
