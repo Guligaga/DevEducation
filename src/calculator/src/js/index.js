@@ -31,19 +31,11 @@ function ifPoint(event) {
             }
         }
         else {
-            // if (displayVar.value.length == 1 && displayVar.value == '0') {
-            //     operand2 += "0" + event.target.value;
-            //     displayVar.value = operand2;
-            // }
-            // else {
-                operand2 += event.target.value;
-                displayVar.value = operand2;
-            // }
+            operand2 += event.target.value;
+            displayVar.value = operand2;
         }
         isPointClicked = true;
     }
-    
-
     dispLen++;
 }
 
@@ -57,14 +49,9 @@ function showOnDisp(event) {
 
     if (isOperClicked == false) {
         if (operand1.length < dispLen) {
-            // if (displayVar.value.length == 1 && operand1 == 0) {}
                 
-                operand1 += event.target.value;
-                displayVar.value = operand1;    
-            
-            // operand1 += event.target.value;
-            // operand1 = +operand1;
-            // displayVar.value = operand1;
+            operand1 += event.target.value;
+            displayVar.value = operand1;    
         }
     }
     else {
@@ -72,17 +59,10 @@ function showOnDisp(event) {
                 
                 operand2 += event.target.value;
                 displayVar.value = operand2;    
-            
-
-            // operand2 += event.target.value;
-            // operand2 = +operand2;
-            // displayVar.value = operand2;
-            
         }
     }
     isNumClicked = true;
 }
-
 
 for (let i = 0; i < operatorVar.length; i++) {
 
@@ -105,7 +85,6 @@ function operatorAction(event) {
     isNumClicked = false;
     isPointClicked = false;
 }
-
 
 equalityVar.addEventListener("click", equalityAction);    
 
@@ -173,9 +152,10 @@ function getAnswer (operation) {
         case '/':
             answer = calcDiv(operand1, operand2);
             break;
-        
     }
-    console.log(answer);
+    if (answer == Infinity) {
+        return "ERROR"
+    }
     return answer;
 }
 
