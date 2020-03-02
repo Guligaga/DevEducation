@@ -2,7 +2,7 @@ let a = [10, 5, 4, 8, 1, 3];
 
 function getMinArr(arr) {
     let min = arr[0];
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (typeof arr[i] !== 'number') {
             return 'Error!';
         }

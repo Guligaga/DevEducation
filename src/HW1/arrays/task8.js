@@ -2,7 +2,7 @@ let a8 = [ 1, 2, 3, 4, 5];
 
 function getHalfChange(arr) {
     let halfCh = [];
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (typeof arr[i] !== 'number') {
             return 'Error!';
         }
