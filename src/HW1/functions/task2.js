@@ -1,6 +1,6 @@
 "use strict"
 
-let num0 = 451;
+let num0 = 101;
 
 function getTensOnes(num) {
 
